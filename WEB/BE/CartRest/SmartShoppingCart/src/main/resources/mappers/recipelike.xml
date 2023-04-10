@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ssafy.cart.recipe.model.repo.RecipeLikeRepo">
+	<insert id="like" parameterType="recipeLikeDto">
+		insert into recipe_like (user_seq, recipe_seq)
+		values (#{user_seq}, #{recipe_seq})		
+	</insert>
+	
+	<delete id="cancel" parameterType="recipeLikeDto">
+		delete from recipe_like
+		where user_seq = #{user_seq} and recipe_seq = #{recipe_seq}		
+	</delete>
+</mapper>

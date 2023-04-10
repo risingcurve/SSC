@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ssafy.cart.model.repo.RecipeRepo">
+	<select id="searchListByTheme" resultType="recipeDto">
+		select * from recipe where theme_seq = #{theme_seq}
+	</select>
+	
+	<select id="detailByRecipeName" resultType="recipeDto">
+		select * from recipe where recipe_name = #{recipe_name}
+	</select>
+	
+	<select id="detailByRecipeSeq" resultType="recipeDto">
+		select * from recipe where recipe_seq = #{recipe_seq}
+	</select>
+	
+	<insert id="regist" parameterType="recipeDto">
+		insert into recipe (theme_seq, user_seq, admin_chk, recipe_name, detail)
+		values (#{theme_seq}, #{user_seq}, #{admin_chk}, #{recipe_name}, #{detail})
+	</insert>
+	
+	<update id="update" parameterType="recipeDto">
+		update recipe
+		set theme_seq = #{theme_seq}, recipe_name = #{recipe_name}, detail = #{detail}, updated_date = now()
+		where recipe_seq = #{recipe_seq}
+	</update>
+	
+	<update id="updateLikeCnt" parameterType="int">
+		update recipe
+		set recipe_like_cnt = (select count(*) from recipe_like where recipe_seq = #{recipe_seq})
+		where recipe_seq = #{recipe_seq}
+	</update>
+	
+	<update id="isDeleted" parameterType="int">
+		update recipe
+		set is_deleted = true
+		where recipe_seq = #{recipe_seq}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from recipe where recipe_seq = #{recipe_seq}
+	</delete>
+</mapper>

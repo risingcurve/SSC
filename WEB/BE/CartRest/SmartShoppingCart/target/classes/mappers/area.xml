@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ssafy.cart.product.model.repo.AreaRepo">
+	<select id="areaDetail" resultType="areaDto">
+		select * from area where area_seq = #{area_seq}
+	</select>
+	
+	<select id="areaList" resultType="areaDto">
+		select * from area
+	</select>
+	
+	<insert id="regist" parameterType="areaDto">
+		insert into area (area_name, area_x, area_y)
+		values (#{area_name}, #{area_x}, #{area_y})
+	</insert>
+	
+	<update id="update" parameterType="areaDto">
+		update area
+		set area_name = #{area_name}
+		where area_seq = #{area_seq}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from area where area_seq = #{area_seq}
+	</delete>
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ssafy.cart.model.repo.ImageRepo">
+	<insert id="insert" parameterType="imageDto">
+		insert into image (integ_seq, origin_name, save_name, save_folder)
+		values (#{integ_seq}, #{origin_name}, #{save_name}, #{save_folder})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete from image
+		where image_seq = #{image_seq}
+	</delete>
+</mapper>

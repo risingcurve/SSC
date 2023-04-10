@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ssafy.cart.model.repo.RecipeDetailRepo">
+	<select id="searchByRecipeSeq" resultType="recipeDetailDto">
+		select * from recipe_detail where recipe_seq = #{recipe_seq}
+	</select>
+	
+	<insert id="insert" parameterType="recipeDetailDto">
+		insert into recipe_detail (recipe_seq, product_seq, cnt)
+		values (#{recipe_seq}, #{product_seq}, #{cnt})
+	</insert>
+	
+	<update id="update" parameterType="recipeDetailDto">
+		update recipe_detail
+		set cnt = #{cnt}
+		where recipe_detail_seq = #{recipe_detail_seq}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from recipe_detail
+		where recipe_detail_seq = #{recipe_detail_seq}
+	</delete>
+</mapper>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ssafy.cart.model.repo.ProductCommentRepo">
+	<insert id="insert" parameterType="productCommentDto">
+		insert into product_comment (product_seq, user_seq, title, detail, star_point)
+		values (#{product_seq}, #{user_seq}, #{title}, #{detail}, #{star_point})
+	</insert>
+	
+	<update id="update" parameterType="productCommentDto">
+		update product_comment
+		set title = #{title}, detail = #{detail}, star_point = #{star_point}, updated_date = now()
+		where product_comment_seq = #{product_comment_seq}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from product_comment
+		where product_comment_seq = #{product_comment_seq}
+	</delete>
+	
+	<select id="searchComment" resultType="productCommentDto">
+		select * from product_comment
+		where product_comment_seq = #{product_comment_seq}
+	</select>
+	
+	<select id="searchList" resultType="productCommentDto">
+		select * from product_comment
+		where product_seq = #{product_seq}
+	</select>
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.cart.product.model.repo.CompanyRepo">
+	<select id="searchByName" parameterType="string" resultType="companyDto">
+		select * from company where company_name = #{company_name}
+	</select>
+	
+	<select id="searchBySeq" parameterType="int" resultType="companyDto">
+		select * from company where company_seq = #{company_seq}
+	</select>
+	
+	<insert id="insertCompany" parameterType="companyDto">
+		insert into company (company_name) values (#{company_name})
+	</insert>
+	
+	<update id="updateCompany" parameterType="companyDto">
+		update company set company_name = #{company_name} where company_seq = #{company_seq}
+	</update>
+	
+	<delete id="deleteCompany" parameterType="string">
+		delete from company where company_name = #{company_name}
+	</delete>
+</mapper>

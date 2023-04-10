@@ -1,0 +1,17 @@
+SAMPLE SETTING
+
+#define DEVICE_NAME            "ESP32"
+#define SERVICE_UUID           "aaaaffe3-aaaa-1000-8000-00805f9b34fc"
+#define BEACON_UUID            "1d05786b-a75e-fa84-7f4d-0970cc467bb6"
+#define BEACON_UUID_REV        "b67b46cc-7009-4d7f-84fa-5ea76b78051d"
+#define CHARACTERISTIC_UUID    "82258BAA-DF72-47E8-99BC-B73D7ECD08A5"
+#define beacon_idx_X               1
+#define beacon_idx_Y               1
+
+
+// DEVICE_NAME MUST BE "ESP32"
+// set SERVICE_UUID same.
+// BEACON_UUID must be unique. you can get UUID from "https://www.uuidgenerator.net/"
+
+// beacon_idx_X must be 1~3
+// beacon_idx_Y must be 1~4

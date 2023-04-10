@@ -1,0 +1,10 @@
+{
+  "id": "com.myrssi.app.service",
+  "description": "RSSI trilaterattion Service",
+  "services": [
+    {
+      "name": "com.myrssi.app.service"
+    }
+  ],
+  "version": "0.0.1"
+}

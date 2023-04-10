@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ssafy.cart.model.repo.IntegrationRepo">
+	<insert id="insert" parameterType="integrationDto">
+		insert into integration (user_seq, recipe_seq, product_seq)
+		values (#{user_seq}, #{recipe_seq}, #{product_seq});
+	</insert>
+	
+	<insert id="insertUser" parameterType="int">
+		insert into integration (user_seq)
+		values (#{user_seq})
+	</insert>
+	
+	<insert id="insertRecipe" parameterType="int">
+		insert into integration (recipe_seq)
+		values (#{recipe_seq})
+	</insert>
+	
+	<insert id="insertProduct" parameterType="int">
+		insert into integration (product_seq)
+		values (#{product_seq})
+	</insert>
+	
+	<delete id="deleteByUser" parameterType="int">
+		delete from integration where user_seq = #{user_seq}
+	</delete>
+	
+	<delete id="deleteByRecipe" parameterType="int">
+		delete from integration where recipe_seq = #{recipe_seq}
+	</delete>
+	
+	<delete id="deleteByProduct" parameterType="int">
+		delete from integration where product_seq = #{product_seq}
+	</delete>
+	
+	<select id="searchByUserSeq" resultType="integrationDto">
+		select * from integration where user_seq = #{user_seq}
+	</select>
+	
+	<select id="searchByRecipeSeq" resultType="integrationDto">
+		select integ_seq, recipe_seq from integration where recipe_seq = #{recipe_seq}
+	</select>
+	
+	<select id="searchByProduct" resultType="integrationDto">
+		select integ_seq, product_seq from integration where product_seq = #{product_seq}
+	</select>
+</mapper>

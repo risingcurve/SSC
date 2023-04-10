@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ssafy.cart.model.repo.RecipeCommentRepo">
+	<select id="searchByCommentSeq" resultType="recipeCommentDto">
+		select * from recipe_comment where recipe_comment_seq = #{recipe_comment_seq}
+	</select>
+	
+	<select id="searchByRecipeSeq" resultType="recipeCommentDto">
+		select * from recipe_comment where recipe_seq = #{recipe_seq}
+	</select>
+	
+	<select id="searchByUserSeq" resultType="recipeCommentDto">
+		select * from recipe_comment where user_seq = #{user_seq}
+	</select>
+	
+	<insert id="insertRecipeComment" parameterType="recipeCommentDto">
+		insert into recipe_comment (recipe_seq, user_seq, recipe_content)
+		values (#{recipe_seq}, #{user_seq}, #{recipe_content})
+	</insert>
+	
+	<update id="updateRecipeComment" parameterType="recipeCommentDto">
+		update recipe_comment
+		set recipe_content = #{recipe_content}, updated_date = now()
+		where recipe_comment_seq = #{recipe_comment_seq}
+	</update>
+	
+	<update id="isDeleted"  parameterType="int">
+		update recipe_comment
+		set is_deleted = true
+		where recipe_comment_seq = #{recipe_comment_seq}
+	</update>
+	
+	<delete id="deleteRecipeComment" parameterType="int">
+		delete from recipe_comment
+		where recipe_comment_seq = #{recipe_comment_seq}
+	</delete>
+</mapper>

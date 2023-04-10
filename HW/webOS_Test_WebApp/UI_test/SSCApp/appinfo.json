@@ -1,0 +1,15 @@
+{
+  "id": "com.sscart.app",
+  "version": "0.0.1",
+  "vendor": "My Company",
+  "type": "web",
+  "main": "index.html",
+  "title": "MART",
+  "icon": "icon.png",
+  "requiredPermissions": [
+    "time.query",
+    "activity.operation",
+    "bluetooth.management",
+    "bluetooth.operation"
+  ]
+}

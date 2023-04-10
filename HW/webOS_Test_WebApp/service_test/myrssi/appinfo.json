@@ -1,0 +1,15 @@
+{
+  "id": "com.myrssi.app",
+  "version": "0.0.1",
+  "vendor": "SSAFY_8th_a102_acy",
+  "type": "web",
+  "main": "index.html",
+  "title": "Where?",
+  "icon": "icon.png",
+  "requiredPermissions": [
+    "time.query",
+    "activity.operation",
+    "bluetooth.management",
+    "bluetooth.operation"
+  ]
+}

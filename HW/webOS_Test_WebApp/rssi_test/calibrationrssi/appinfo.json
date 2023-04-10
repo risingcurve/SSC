@@ -1,0 +1,15 @@
+{
+  "id": "com.calibrationrssi.app",
+  "version": "0.0.1",
+  "vendor": "My Company",
+  "type": "web",
+  "main": "index.html",
+  "title": "calibration",
+  "icon": "icon.png",
+  "requiredPermissions": [
+    "time.query",
+    "activity.operation",
+    "bluetooth.management",
+    "bluetooth.operation"
+  ]
+}

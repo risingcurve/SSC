@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ssafy.cart.recipe.model.repo.ThemeRepo">
+	<select id="searchByName" resultType="themeDto">
+		select * from theme where theme_name = #{theme_name}
+	</select>
+	
+	<select id="searchBySeq" resultType="themeDto">
+		select * from theme where theme_seq = #{theme_seq}
+	</select>
+	
+	<select id="searchList" resultType="themeDto">
+		select * from theme
+	</select>
+	
+	<insert id="insert" parameterType="themeDto">
+		insert into theme (theme_name) values (#{theme_name})
+	</insert>
+	
+	<update id="update" parameterType="themeDto">
+		update theme set theme_name = #{theme_name} where theme_seq = #{theme_seq}
+	</update>
+	
+	<delete id="delete">
+		delete from theme where theme_seq = #{theme_seq}
+	</delete>
+</mapper>

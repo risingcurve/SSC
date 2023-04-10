@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ssafy.cart.purchase.model.repo.PurchaseDetailRepo">
+	<insert id="insert" parameterType="purchaseDetailDto">
+		insert into purchase_detail (purchase_seq, product_seq, cnt, price, discount_price)
+		values (#{purchase_seq}, #{product_seq}, #{cnt}, 
+		(select price from product where product_seq = #{product_seq}), 
+		(select discount_price from product where product_seq = #{product_seq}))
+	</insert>
+	
+	<select id="searchByPurchaseSeq" resultType="purchaseDetailDto">
+		select * from purchase_detail where purchase_seq = #{purchase_seq}
+	</select>
+</mapper>

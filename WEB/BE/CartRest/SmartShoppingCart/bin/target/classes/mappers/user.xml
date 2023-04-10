@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ssafy.cart.model.repo.UserRepo">
+	<select id="userInfoAll" parameterType="string" resultType="userDto">
+		select * from user where user_id = #{user_id}
+	</select>
+	
+	<select id="userInfo" parameterType="string" resultType="userDto">
+		select user_id, user_pwd, name, email_id, email_domain, phone, birth, gender, created_date
+		from user
+		where user_id = #{user_id}
+	</select>
+	
+	<insert id="regist" parameterType="userDto">
+		INSERT INTO user (user_id, user_pwd, name, email_id, email_domain, phone, birth, gender) 
+		VALUES (#{user_id}, #{user_pwd}, #{name}, #{email_id}, #{email_domain}, #{phone}, #{birth}, #{gender})
+	</insert>
+	
+	<update id="update" parameterType="userDto">
+		update user
+		set user_id = #{user_id}, user_pwd = #{user_pwd}, name = #{name}, email_id = #{email_id}, email_domain = #{email_domain}, phone = #{phone}, birth = #{birth}, gender = #{gender}
+		where user_id = #{user_id}
+	</update>
+	
+	<update id="leave" parameterType="string">
+		update user
+		set is_valid = true
+		where user_id = #{user_id}
+	</update>
+	
+	<delete id="delete" parameterType="string">
+		delete from user
+		where user_id = #{user_id}
+	</delete>
+</mapper>

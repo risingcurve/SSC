@@ -1,0 +1,10 @@
+{
+  "id": "com.sscart.app.service",
+  "description": "sscart Service",
+  "services": [
+    {
+      "name": "com.sscart.app.service"
+    }
+  ],
+  "version": "0.0.1"
+}

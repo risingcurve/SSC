@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ssafy.cart.model.repo.CartListRepo">
+	<select id="searchCart" resultType="cartListDto">
+		select * from cart where cart_seq = #{cart_seq}
+	</select>
+	
+	<select id="searchList" resultType="cartListDto">
+		select * from cart where user_seq = #{user_seq}
+	</select>
+	
+	<insert id="insert" parameterType="cartListDto">
+		insert into cart (user_seq, cart_name)
+		values (#{user_seq}, #{cart_name})
+	</insert>
+	
+	<update id="update" parameterType="cartListDto">
+		update cart
+		set cart_name = #{cart_name}
+		where cart_seq = #{cart_seq}
+	</update>
+	
+	<update id="updateTotalPrice">
+		update cart
+		set total_price = (select sum(price * cnt) from cart_detail where cart_seq = #{cart_seq})
+		where cart_seq = #{cart_seq}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from cart where cart_seq = #{cart_seq}
+	</delete>
+</mapper>
